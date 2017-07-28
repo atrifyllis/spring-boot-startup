@@ -1,0 +1,11 @@
+security:
+  user:
+    password: user
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: trace
+        type:
+          descriptor:
+            sql: trace
