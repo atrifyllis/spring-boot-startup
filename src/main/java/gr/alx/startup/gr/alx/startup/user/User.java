@@ -1,26 +1,24 @@
 package gr.alx.startup.gr.alx.startup.user;
 
-import java.util.UUID;
-
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import org.hibernate.envers.Audited;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
+import gr.alx.startup.common.BaseEntity;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 @Data
+@EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @Entity
-public class User {
+@Audited
+public class User extends BaseEntity {
 
-    @Id
-    @GeneratedValue
-    public UUID id;
-    private String username;
+	private String username;
 
-    public User(String username) {
-        this.username = username;
-    }
+	public User(String username) {
+		this.username = username;
+	}
 }
