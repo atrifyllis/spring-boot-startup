@@ -1,5 +1,7 @@
 package gr.alx.startup.gr.alx.startup.user;
 
+import java.util.UUID;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -9,13 +11,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Data
-@Entity
 @NoArgsConstructor
+@Entity
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue
+    public UUID id;
     private String username;
 
     public User(String username) {
