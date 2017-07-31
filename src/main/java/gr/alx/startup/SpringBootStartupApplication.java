@@ -35,8 +35,9 @@ public class SpringBootStartupApplication {
         public void run(String... strings) throws Exception {
             userRepository.save(
                     Arrays.asList(
-                            new User("alex", passwordEncoder.encode("alex"), new HashSet<>(Arrays.asList(Role.ADMIN, Role.USER))),
-                            new User("nikos", passwordEncoder.encode("nikos"), new HashSet<>(Arrays.asList(Role.ADMIN)))
+                            new User("admin", passwordEncoder.encode("admin"), new HashSet<>(Arrays.asList(Role.ADMIN, Role.USER, Role.ROLE_USER))),
+                            new User("alex", passwordEncoder.encode("alex"), new HashSet<>(Arrays.asList(Role.USER))),
+                            new User("nikos", passwordEncoder.encode("nikos"), new HashSet<>(Arrays.asList(Role.USER)))
                     ));
         }
     }

@@ -9,3 +9,4 @@ logging:
         type:
           descriptor:
             sql: trace
+#      springframework: debug
