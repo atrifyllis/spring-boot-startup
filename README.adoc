@@ -1,0 +1,6 @@
+= Spring Boot Starter project
+
+== General Info
+
+=== H2 database
+To browse the H2 in-memory database go to http://localhost:8080/h2-console and enter in JDBC URL the following: `jdbc:h2:mem:testdb`
