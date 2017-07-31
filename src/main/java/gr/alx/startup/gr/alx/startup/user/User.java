@@ -1,13 +1,13 @@
 package gr.alx.startup.gr.alx.startup.user;
 
-import org.hibernate.envers.Audited;
-
-import javax.persistence.Entity;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import gr.alx.startup.common.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.hibernate.envers.Audited;
+
+import javax.persistence.Entity;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
@@ -16,9 +16,13 @@ import lombok.NoArgsConstructor;
 @Audited
 public class User extends BaseEntity {
 
-	private String username;
+    private String username;
 
-	public User(String username) {
-		this.username = username;
-	}
+    @JsonIgnore
+    private String password;
+
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
 }
