@@ -10,3 +10,10 @@ logging:
           descriptor:
             sql: trace
 #      springframework: debug
+spring:
+  data:
+    rest:
+      base-path: /api
+  jpa:
+    hibernate:
+      ddl-auto: none

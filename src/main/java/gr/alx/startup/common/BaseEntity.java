@@ -1,6 +1,7 @@
 package gr.alx.startup.common;
 
 import lombok.Data;
+import org.hibernate.annotations.Type;
 import org.hibernate.envers.Audited;
 
 import javax.persistence.GeneratedValue;
@@ -15,6 +16,7 @@ import java.util.UUID;
 public abstract class BaseEntity {
 
     @Id
+    @Type(type="uuid-char") //saved as varchar in database
     @GeneratedValue
     private UUID id;
 
