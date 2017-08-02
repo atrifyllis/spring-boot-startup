@@ -21,9 +21,12 @@ import javax.sql.DataSource;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
+    final DataSource dataSource;
+
     @Autowired
-    @Qualifier("dataSource")
-    DataSource dataSource;
+    public WebSecurityConfig(@Qualifier("dataSource") DataSource dataSource) {
+        this.dataSource = dataSource;
+    }
 
     @Autowired
     public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
