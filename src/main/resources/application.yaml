@@ -9,7 +9,7 @@ logging:
         type:
           descriptor:
             sql: trace
-#      springframework: debug
+      springframework: debug
 spring:
   data:
     rest:

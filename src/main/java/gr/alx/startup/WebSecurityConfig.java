@@ -48,7 +48,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/").permitAll()
                 .antMatchers("/api/**").authenticated()
                 .antMatchers("/h2-console/**").authenticated()
-
+                // this is needed for h2-console to work, could be removed in production
                 .and()
                 .headers()
                 .frameOptions()
