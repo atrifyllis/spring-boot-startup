@@ -1,6 +1,3 @@
-security:
-  user:
-    password: user
 logging:
   level:
     org:
@@ -17,3 +14,10 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
+server:
+  port: 8443
+  ssl:
+    key-store: classpath:keystore.p12
+    key-store-password: tomcat
+    key-store-type: PKCS12
+    key-alias: tomcat
