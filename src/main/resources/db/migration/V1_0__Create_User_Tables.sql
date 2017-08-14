@@ -1,2 +1,2 @@
-create table user (id varchar(255) not null, enabled boolean, version bigint, password varchar(255), username varchar(255), primary key (id));
+create table user (id varchar(255) not null, enabled boolean, version bigint, password varchar(255), username varchar(255), email varchar(255), primary key (id));
 create table user_roles (user_id varchar(255) not null, roles varchar(255));
