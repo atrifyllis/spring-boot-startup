@@ -3,6 +3,7 @@ package gr.alx.startup;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -25,6 +26,7 @@ import java.util.regex.Pattern;
 
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
+@Configuration
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     final DataSource dataSource;
@@ -55,10 +57,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
                 .and()
                 .authorizeRequests()
-                .antMatchers("/").permitAll()
-                .antMatchers("/api/**").authenticated()
-                .antMatchers("/h2-console/**").authenticated()
-                // this is needed for h2-console to work, could be removed in production
+                .antMatchers("/login", "/oauth/authorize").permitAll()
+                .anyRequest().authenticated()
                 .and()
                 .headers()
                 .frameOptions()
@@ -69,6 +69,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
                 .and()
                 .cors()
+        ;
+
         ;
     }
 

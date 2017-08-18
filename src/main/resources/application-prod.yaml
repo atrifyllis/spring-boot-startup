@@ -22,3 +22,9 @@ server:
     key-store-password: tomcat
     key-store-type: PKCS12
     key-alias: tomcat
+# this is required so that the oath filter takes precendence over the web security filter.
+# otherwise the JSESSIONID cookie is enough to access the rest endpoints. with that the token is also needed
+security:
+  oauth2:
+    resource:
+      filter-order: 3

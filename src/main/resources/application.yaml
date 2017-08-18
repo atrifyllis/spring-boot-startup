@@ -7,6 +7,7 @@ logging:
           descriptor:
             sql: trace
       springframework: debug
+      flywaydb: debug
 spring:
   data:
     rest:
@@ -16,6 +17,13 @@ spring:
       ddl-auto: update
 server:
   use-forward-headers: true
+
+# this is required so that the oath filter takes precendence over the web security filter.
+# otherwise the JSESSIONID cookie is enough to access the rest endpoints. with that the token is also needed
+security:
+  oauth2:
+    resource:
+      filter-order: 3
 #  port: 8443
 #  ssl:
 #    key-store: classpath:keystore.p12
