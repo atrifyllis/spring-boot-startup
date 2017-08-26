@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.sql.DataSource;
 
 
-@EnableWebSecurity
+//@EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
@@ -42,24 +42,36 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
-        http
-                .csrf()
-                .requireCsrfProtectionMatcher(csrfRequestMatcher)
-
+//        http
+//                .csrf()
+//                .requireCsrfProtectionMatcher(csrfRequestMatcher)
+//
+//                .and()
+//                .authorizeRequests()
+//                .antMatchers("/").permitAll()
+//                .antMatchers("/api/**").authenticated()
+//                .antMatchers("/h2-console/**").authenticated()
+//                // this is needed for h2-console to work, could be removed in production
+//                .and()
+//                .headers()
+//                .frameOptions()
+//                .sameOrigin()
+//
+//                .and()
+//                .httpBasic()
+//        ;
+        http.requestMatchers()
+                .antMatchers("/login", "/oauth/authorize")
                 .and()
                 .authorizeRequests()
-                .antMatchers("/").permitAll()
-                .antMatchers("/api/**").authenticated()
-                .antMatchers("/h2-console/**").authenticated()
-                // this is needed for h2-console to work, could be removed in production
+                .anyRequest()
+                .authenticated()
                 .and()
-                .headers()
-                .frameOptions()
-                .sameOrigin()
-
+                .formLogin()
+                .permitAll()
                 .and()
                 .httpBasic()
-        ;
+                .disable();
     }
 
     @Bean
