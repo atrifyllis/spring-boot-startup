@@ -58,7 +58,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .sameOrigin()
 
                 .and()
-                .httpBasic()
+                .formLogin()
         ;
     }
 
