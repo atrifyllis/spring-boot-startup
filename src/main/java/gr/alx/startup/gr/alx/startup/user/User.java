@@ -22,6 +22,8 @@ public class User extends BaseEntity {
 
     private String username;
 
+    private String email;
+
     @JsonIgnore
     private String password;
 

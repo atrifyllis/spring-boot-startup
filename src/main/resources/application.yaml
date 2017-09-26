@@ -15,9 +15,10 @@ spring:
     hibernate:
       ddl-auto: update
 server:
-  port: 8443
-  ssl:
-    key-store: classpath:keystore.p12
-    key-store-password: tomcat
-    key-store-type: PKCS12
-    key-alias: tomcat
+  use-forward-headers: true
+#  port: 8443
+#  ssl:
+#    key-store: classpath:keystore.p12
+#    key-store-password: tomcat
+#    key-store-type: PKCS12
+#    key-alias: tomcat
