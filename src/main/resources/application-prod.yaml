@@ -1,0 +1,24 @@
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: trace
+        type:
+          descriptor:
+            sql: trace
+      springframework: debug
+spring:
+  data:
+    rest:
+      base-path: /api
+  jpa:
+    hibernate:
+      ddl-auto: update
+server:
+  use-forward-headers: true
+#  port: 8443
+  ssl:
+    key-store: classpath:keystore.p12
+    key-store-password: tomcat
+    key-store-type: PKCS12
+    key-alias: tomcat
