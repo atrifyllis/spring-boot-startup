@@ -18,13 +18,13 @@ import javax.sql.DataSource;
 @EnableAuthorizationServer
 @Configuration
 public class AuthServerOAuth2Config extends AuthorizationServerConfigurerAdapter {
-    @Autowired
-    private AuthenticationManager authenticationManager;
-    final DataSource dataSource;
+    private final DataSource dataSource;
+    private final AuthenticationManager authenticationManager;
 
     @Autowired
-    public AuthServerOAuth2Config(@Qualifier("dataSource") DataSource dataSource) {
+    public AuthServerOAuth2Config(@Qualifier("dataSource") DataSource dataSource, AuthenticationManager authenticationManager) {
         this.dataSource = dataSource;
+        this.authenticationManager = authenticationManager;
     }
 
     @Override

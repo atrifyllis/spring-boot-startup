@@ -1,6 +1,7 @@
 package gr.alx.startup.gr.alx.startup.user;
 
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,8 +17,8 @@ public class AuthenticatedUserResource {
         return User.builder()
                 .username(authentication.getName())
                 .roles(authentication.getAuthorities().stream()
-                        .map(o -> o.getAuthority())
-                        .map(s -> Role.valueOf(s))
+                        .map(GrantedAuthority::getAuthority)
+                        .map(Role::valueOf)
                         .collect(toSet())
                 )
                 .build();

@@ -29,7 +29,7 @@ import java.util.regex.Pattern;
 @Configuration
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    final DataSource dataSource;
+    private final DataSource dataSource;
 
     @Autowired
     public WebSecurityConfig(@Qualifier("dataSource") DataSource dataSource) {
@@ -70,8 +70,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .cors()
         ;
-
-        ;
     }
 
     @Bean
@@ -79,13 +77,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
-    RequestMatcher csrfRequestMatcher = new RequestMatcher() {
+    private final RequestMatcher csrfRequestMatcher = new RequestMatcher() {
 
         // Always allow the HTTP GET method
-        private Pattern allowedMethods = Pattern.compile("^(GET|HEAD|TRACE|OPTIONS)$");
+        private final Pattern allowedMethods = Pattern.compile("^(GET|HEAD|TRACE|OPTIONS)$");
 
         // Disable CSFR protection on the following urls:
-        private AntPathRequestMatcher[] requestMatchers = {
+        private final AntPathRequestMatcher[] requestMatchers = {
                 new AntPathRequestMatcher("/login"),
                 new AntPathRequestMatcher("/logout"),
                 new AntPathRequestMatcher("/h2-console/**"),
