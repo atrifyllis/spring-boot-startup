@@ -2,9 +2,7 @@ package gr.alx.startup.gr.alx.startup.user;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import gr.alx.startup.common.BaseEntity;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.envers.Audited;
 
 import javax.persistence.ElementCollection;
@@ -16,6 +14,8 @@ import java.util.Set;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
 @Audited
 public class User extends BaseEntity {
