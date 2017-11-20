@@ -1,14 +1,15 @@
 package gr.alx.startup.gr.alx.startup.user;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import gr.alx.startup.common.BaseEntity;
 import lombok.*;
 import org.hibernate.envers.Audited;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.util.StringUtils;
 
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.util.Set;
 
 @Data
@@ -20,15 +21,36 @@ import java.util.Set;
 @Audited
 public class User extends BaseEntity {
 
+    public static final PasswordEncoder ENCODER = new BCryptPasswordEncoder();
+
+    @Size(min = 5)
     private String username;
 
     private String email;
 
-    @JsonIgnore
+    /**
+     * Never send the password to the UI!
+     */
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
+
+    /**
+     * The confirmation password is only for validation purposes so it is marked as Transient
+     */
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @Transient
+    private String confirmPassword;
 
     @ElementCollection
     @Enumerated(EnumType.STRING)
     private Set<Role> roles;
 
+    /**
+     * In case we pass password from the UI, it must be encoded before it is inserted in the db.
+     */
+    @PreUpdate
+    @PrePersist
+    private void encodePassword() {
+        password = !StringUtils.isEmpty(password) ? ENCODER.encode(password) : null;
+    }
 }
