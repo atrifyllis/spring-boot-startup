@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import gr.alx.startup.common.BaseEntity;
 import lombok.*;
 import org.hibernate.envers.Audited;
+import org.hibernate.validator.constraints.Email;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.util.StringUtils;
@@ -23,9 +24,10 @@ public class User extends BaseEntity {
 
     public static final PasswordEncoder ENCODER = new BCryptPasswordEncoder();
 
-    @Size(min = 5)
+    @Size(min = 4)
     private String username;
 
+    @Email
     private String email;
 
     /**
