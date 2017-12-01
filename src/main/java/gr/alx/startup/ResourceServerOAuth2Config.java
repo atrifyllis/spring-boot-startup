@@ -15,11 +15,11 @@ public class ResourceServerOAuth2Config extends ResourceServerConfigurerAdapter 
                 .csrf().disable()
                 // this is required otherwise the oauth filter is used for login page and it fails!!!
                 .requestMatchers()
-                .antMatchers("/api/*")
+                .antMatchers("/api/**")
 
                 .and()
                 .authorizeRequests()
-                .antMatchers("/api/*").authenticated();
+                .antMatchers("/api/**").authenticated();
 
     }
 }
