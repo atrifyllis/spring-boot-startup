@@ -20,9 +20,19 @@ Users with ADMIN role can access the REST endpoint for user(s):
 http(s)://localhost:8443/api/users
 
 === Keystore
-To create the keystore the following command was used (password is 'tomcat'):
+To create the keystore for Tomcat HTTPS the following command was used (password is 'tomcat'):
 
 `keytool -genkey -alias tomcat -storetype PKCS12 -keyalg RSA -keysize 2048 -keystore keystore.p12 -validity 4000`
+
+To create the keystore for JWT signing the following command was used:
+
+`keytool -genkeypair -alias jwt -keyalg RSA -keypass jwtjwt -keystore jwt.jks -storepass jwtjwt -validity 4000`
+
+Then to export the public key separately the command:
+
+`keytool -list -rfc --keystore jwt.jks | openssl x509 -inform pem -pubkey`
+
+Then copy paste only the Public Key to a seperate file. (This command needs openssl installed on your machine. Alternatively you can use a tool like Keystore Explorer for the export).
 
 === Production
 
