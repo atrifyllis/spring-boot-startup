@@ -15,6 +15,9 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
+# ignore null values
+  jackson:
+    default-property-inclusion: non_null
 server:
   use-forward-headers: true
 

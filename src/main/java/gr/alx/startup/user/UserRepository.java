@@ -11,5 +11,12 @@ import java.util.UUID;
 @PreAuthorize("hasRole('ROLE_ADMIN')")
 public interface UserRepository extends BaseRepository<User, UUID> {
 
+    /**
+     * This method should be allowed to be called by an authenticated user (not admin) because it is used in JWT token enhancement!
+     *
+     * @param username
+     * @return
+     */
+    @PreAuthorize("isAuthenticated()")
     Optional<User> findByUsername(String username);
 }
