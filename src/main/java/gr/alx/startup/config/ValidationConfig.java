@@ -1,6 +1,6 @@
-package gr.alx.startup;
+package gr.alx.startup.config;
 
-import gr.alx.startup.gr.alx.startup.user.UserValidator;
+import gr.alx.startup.user.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

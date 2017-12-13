@@ -1,7 +1,8 @@
-package gr.alx.startup;
+package gr.alx.startup.config;
 
-import gr.alx.startup.gr.alx.startup.user.User;
-import gr.alx.startup.gr.alx.startup.user.UserRepository;
+
+import gr.alx.startup.user.User;
+import gr.alx.startup.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;

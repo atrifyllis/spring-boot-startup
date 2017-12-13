@@ -1,5 +1,7 @@
-package gr.alx.startup.gr.alx.startup.user;
+package gr.alx.startup.user;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.Link;
 import org.springframework.hateoas.Resource;
 import org.springframework.http.ResponseEntity;

@@ -1,4 +1,4 @@
-package gr.alx.startup.gr.alx.startup.user;
+package gr.alx.startup.user;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import gr.alx.startup.common.BaseEntity;

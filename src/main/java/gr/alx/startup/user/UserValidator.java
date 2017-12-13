@@ -1,4 +1,4 @@
-package gr.alx.startup.gr.alx.startup.user;
+package gr.alx.startup.user;
 
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;

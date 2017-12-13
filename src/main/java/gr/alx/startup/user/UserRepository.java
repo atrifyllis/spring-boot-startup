@@ -1,4 +1,4 @@
-package gr.alx.startup.gr.alx.startup.user;
+package gr.alx.startup.user;
 
 import gr.alx.startup.common.BaseRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
