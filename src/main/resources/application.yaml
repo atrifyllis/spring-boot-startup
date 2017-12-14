@@ -12,6 +12,7 @@ spring:
   data:
     rest:
       base-path: /api
+      return-body-on-update: true
   jpa:
     hibernate:
       ddl-auto: update

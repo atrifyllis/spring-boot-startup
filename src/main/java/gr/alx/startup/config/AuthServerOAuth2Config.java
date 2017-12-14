@@ -100,22 +100,3 @@ public class AuthServerOAuth2Config extends AuthorizationServerConfigurerAdapter
 
 }
 
-/**
- * Add custom fields (i.e. email) inside JWT token
- */
-@Component
-class CustomTokenEnhancer implements TokenEnhancer {
-    @Autowired
-    UserRepository userRepository;
-
-    @Override
-    public OAuth2AccessToken enhance(
-            OAuth2AccessToken accessToken,
-            OAuth2Authentication authentication) {
-        Optional<User> user = userRepository.findByUsername(authentication.getName());
-        Map<String, Object> additionalInfo = new HashMap<>();
-        additionalInfo.put("email", user.map(User::getEmail).orElseThrow(IllegalStateException::new));
-        ((DefaultOAuth2AccessToken) accessToken).setAdditionalInformation(additionalInfo);
-        return accessToken;
-    }
-}
