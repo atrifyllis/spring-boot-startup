@@ -32,7 +32,7 @@ Then to export the public key separately the command:
 
 `keytool -list -rfc --keystore jwt.jks | openssl x509 -inform pem -pubkey`
 
-Then copy paste only the Public Key to a seperate file. (This command needs openssl installed on your machine. Alternatively you can use a tool like Keystore Explorer for the export).
+Then copy paste only the Public Key to a separate file. (This command needs openssl installed on your machine. Alternatively you can use a tool like Keystore Explorer for the export).
 
 === Production
 

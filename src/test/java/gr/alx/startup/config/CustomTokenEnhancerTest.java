@@ -23,12 +23,15 @@ import static org.mockito.Mockito.when;
 public class CustomTokenEnhancerTest {
 
     @Mock
+    private
     UserRepository userRepository;
 
     @Mock
+    private
     OAuth2Authentication authentication;
 
     @InjectMocks
+    private
     CustomTokenEnhancer customTokenEnhancer;
 
     @Before

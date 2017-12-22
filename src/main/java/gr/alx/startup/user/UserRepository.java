@@ -14,8 +14,8 @@ public interface UserRepository extends BaseRepository<User, UUID> {
     /**
      * This method should be allowed to be called by an authenticated user (not admin) because it is used in JWT token enhancement!
      *
-     * @param username
-     * @return
+     * @param username the username of the user to be retrieved
+     * @return an Optional of a User
      */
     @PreAuthorize("isAuthenticated()")
     Optional<User> findByUsername(String username);

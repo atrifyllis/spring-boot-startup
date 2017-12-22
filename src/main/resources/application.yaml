@@ -22,7 +22,7 @@ spring:
 server:
   use-forward-headers: true
 
-# this is required so that the oath filter takes precendence over the web security filter.
+# this is required so that the oath filter takes precedence over the web security filter.
 # otherwise the JSESSIONID cookie is enough to access the rest endpoints. with that the token is also needed
 security:
   oauth2:

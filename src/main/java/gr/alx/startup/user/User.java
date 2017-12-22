@@ -3,7 +3,6 @@ package gr.alx.startup.user;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import gr.alx.startup.common.BaseEntity;
 import lombok.*;
-import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.envers.Audited;
 import org.hibernate.validator.constraints.Email;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;

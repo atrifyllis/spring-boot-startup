@@ -20,7 +20,7 @@ public class ValidationConfig extends RepositoryRestConfigurerAdapter {
     private UserValidator userValidator;
 
     /**
-     * Create a beanValidator to use in bean validation - by default if bean validation fails a generic error is thrown from sprin data rest
+     * Create a beanValidator to use in bean validation - by default if bean validation fails a generic error is thrown from spring data rest
      */
     @Bean
     @Primary

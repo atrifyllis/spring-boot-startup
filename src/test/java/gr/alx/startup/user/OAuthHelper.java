@@ -19,9 +19,10 @@ import org.springframework.stereotype.Component;
 import org.springframework.test.web.servlet.request.RequestPostProcessor;
 
 import java.io.Serializable;
-import java.util.*;
-
-import static java.util.stream.Collectors.toList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Map;
+import java.util.Set;
 
 @Component
 public class OAuthHelper {
@@ -53,10 +54,10 @@ public class OAuthHelper {
         };
     }
 
-    OAuth2AccessToken createAccessToken(final String clientId, User user) {
+    private OAuth2AccessToken createAccessToken(final String clientId, User user) {
         // Look up authorities, resourceIds and scopes based on clientId and user
         ClientDetails client = clientDetailsService.loadClientByClientId(clientId);
-        Collection<GrantedAuthority> authorities = retrieveAuthoritesFromUser(user);
+        Collection<GrantedAuthority> authorities = retrieveAuthoritiesFromUser(user);
         Set<String> resourceIds = client.getResourceIds();
         Set<String> scopes = client.getScope();
 
@@ -76,22 +77,20 @@ public class OAuthHelper {
         OAuth2AccessToken oAuth2AccessToken = tokenservice.createAccessToken(auth);
         // TODO: enhance token automatically?
         OAuth2AccessToken jwtToken = jwtAccessTokenConverter.enhance(oAuth2AccessToken, auth);
-        OAuth2AccessToken enhancedJwtToken = customTokenEnhancer.enhance(jwtToken, auth);
-        return enhancedJwtToken;
+        return customTokenEnhancer.enhance(jwtToken, auth);
     }
 
-    private Collection<GrantedAuthority> retrieveAuthoritesFromUser(User user) {
-        List<String> roleList = user.getRoles().stream().map(role -> role.name()).collect(toList());
-        String[] roles = roleList.toArray(new String[roleList.size()]);
+    private Collection<GrantedAuthority> retrieveAuthoritiesFromUser(User user) {
+        String[] roles = user.getRoles().stream().map(Enum::name).toArray(String[]::new);
         return AuthorityUtils.createAuthorityList(roles);
     }
 
     /**
      * Clone user using Jackson
      *
-     * @param user
-     * @return
-     * @throws java.io.IOException
+     * @param user the User object to be cloned
+     * @return the cloned User
+     * @throws java.io.IOException in case of serialization error
      */
     public User cloneUser(User user) throws java.io.IOException {
         String stringUser = objectMapper.writeValueAsString(user);
