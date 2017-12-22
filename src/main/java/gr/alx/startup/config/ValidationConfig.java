@@ -1,6 +1,6 @@
-package gr.alx.startup;
+package gr.alx.startup.config;
 
-import gr.alx.startup.gr.alx.startup.user.UserValidator;
+import gr.alx.startup.user.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,7 +20,7 @@ public class ValidationConfig extends RepositoryRestConfigurerAdapter {
     private UserValidator userValidator;
 
     /**
-     * Create a beanValidator to use in bean validation - by default if bean validation fails a generic error is thrown from sprin data rest
+     * Create a beanValidator to use in bean validation - by default if bean validation fails a generic error is thrown from spring data rest
      */
     @Bean
     @Primary

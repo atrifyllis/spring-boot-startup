@@ -1,4 +1,4 @@
-package gr.alx.startup.gr.alx.startup.user;
+package gr.alx.startup.user;
 
 import org.springframework.hateoas.Link;
 import org.springframework.hateoas.Resource;
