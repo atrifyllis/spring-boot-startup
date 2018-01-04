@@ -7,4 +7,7 @@ server:
   # add specific port because of a weird behavior:
   # if port is set to 8080 for example, the redirect to login page is done to localhost:8443/login.
   # needs investigation
-  port: 8443
+#  port: 8443
+eureka:
+  client:
+    enabled: true

@@ -34,3 +34,7 @@ security:
 #    key-store-password: tomcat
 #    key-store-type: PKCS12
 #    key-alias: tomcat
+# disable client discovery in dev mode
+eureka:
+                    client:
+                      enabled: false

@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: user-service
+server:
+  port: ${PORT:0}
+eureka:
+  instance:
+    secure-port-enabled: true
+    non-secure-port-enabled: false
+    # this only works in Edgware release
+    secure-port: ${server.port}
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
