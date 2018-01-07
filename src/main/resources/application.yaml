@@ -19,6 +19,8 @@ spring:
 # ignore null values
   jackson:
     default-property-inclusion: non_null
+  application:
+    name: spring-boot-startup
 server:
   use-forward-headers: true
 
@@ -28,6 +30,9 @@ security:
   oauth2:
     resource:
       filter-order: 3
+eureka:
+  client:
+    enabled: false
 #  port: 8443
 #  ssl:
 #    key-store: classpath:keystore.p12
