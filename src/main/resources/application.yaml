@@ -33,6 +33,8 @@ security:
 eureka:
   client:
     enabled: false
+flyway:
+  locations: db.migration/common,db.migration/h2
 #  port: 8443
 #  ssl:
 #    key-store: classpath:keystore.p12

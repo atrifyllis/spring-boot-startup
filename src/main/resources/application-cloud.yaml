@@ -1,3 +1,6 @@
 eureka:
   client:
     enabled: true
+# syntax is different in h2 and mysql
+flyway:
+  locations: db.migration/common,db.migration/mysql

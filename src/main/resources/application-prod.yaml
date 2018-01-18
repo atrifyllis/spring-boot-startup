@@ -8,3 +8,15 @@ server:
   # if port is set to 8080 for example, the redirect to login page is done to localhost:8443/login.
   # needs investigation
   port: 8443
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/spring_boot_startup?createDatabaseIfNotExist=true
+    username: root
+    password: root
+    tomcat:
+      test-while-idle: true
+      validation-query: SELECT 1
+# syntax is different in h2 and mysql
+flyway:
+  locations: db.migration/common,db.migration/mysql
