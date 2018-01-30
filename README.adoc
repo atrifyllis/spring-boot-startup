@@ -36,4 +36,6 @@ Then copy paste only the Public Key to a separate file. (This command needs open
 
 === Production
 
-Running with spring profile 'prod' will run in HTTPS mode
+Running with spring profile 'prod' will run in HTTPS mode.
+
+NOTE: A MySQL database is needed for production mode with name 'spring_boot_startup'. You must change username password in application-prod.yaml file.
