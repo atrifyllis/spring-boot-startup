@@ -30,16 +30,11 @@ public class User extends BaseEntity {
     @Email
     private String email;
 
-    /**
-     * Never send the password to the UI!
-     */
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 
     /**
      * The confirmation password is only for validation purposes so it is marked as Transient
      */
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @Transient
     private String confirmPassword;
 
