@@ -57,7 +57,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
                 .and()
                 .authorizeRequests()
-                .antMatchers("/login", "/oauth/authorize", "/favicon.ico").permitAll()
+                .antMatchers("/assets/**","/login", "/oauth/authorize", "/favicon.ico").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .headers()
@@ -66,6 +66,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
                 .and()
                 .formLogin()
+                // custom login form
+                .loginPage("/login").permitAll()
 
                 .and()
                 .cors()
