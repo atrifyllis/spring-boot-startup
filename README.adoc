@@ -2,22 +2,23 @@
 
 == General Info
 
+<port> in the following is either 8076 for http (dev mode) or 8443 for https (prod mode)
 === Database initialization
 An H2 in-memory database is used for this project, initialized at startup.
 The database is initialized using http(s)://flywaydb.org/[flyway].
 
 === H2 database
-You can browse the database here: http(s)://localhost:8443/h2-console entering in JDBC URL the following: `jdbc:h2:mem:testdb`
+You can browse the database here: http(s)://localhost:<port>/h2-console entering in JDBC URL the following: `jdbc:h2:mem:testdb`
 
 === HAL browser
-Go to http(s)://localhost:8443/api for browsing the exposed REST API
+Go to http(s)://localhost:<port>/api for browsing the exposed REST API
 
 == Entry points
 
 === Users
 Users with ADMIN role can access the REST endpoint for user(s):
 
-http(s)://localhost:8443/api/users
+http(s)://localhost:<port>/api/users
 
 === Keystore
 To create the keystore for Tomcat HTTPS the following command was used (password is 'tomcat'):
