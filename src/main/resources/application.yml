@@ -6,7 +6,7 @@ logging:
         type:
           descriptor:
             sql: trace
-      springframework: debug
+      springframework: info
       flywaydb: debug
 spring:
   data:

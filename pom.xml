@@ -107,6 +107,7 @@
             <scope>test</scope>
         </dependency>
 
+
         <dependency>
             <groupId>io.pivotal.spring.cloud</groupId>
             <artifactId>spring-cloud-services-starter-service-registry</artifactId>
@@ -138,7 +139,44 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-
+            <plugin>
+                <groupId>io.fabric8</groupId>
+                <artifactId>fabric8-maven-plugin</artifactId>
+                <version>4.0.0</version>
+                <configuration>
+                    <authConfig>
+                        <username>otinanism</username>
+                        <password>belgium7</password>
+                    </authConfig>
+                    <generator>
+                        <includes>
+                            <include>spring-boot</include>
+                        </includes>
+                        <config>
+                            <spring-boot>
+                                <name>otinanism/spring-boot-startup:%t</name>
+                                <from>fabric8/java-centos-openjdk8-jdk:1.5.4</from>
+                            </spring-boot>
+                        </config>
+                    </generator>
+                </configuration>
+               <!-- <executions>
+                    <execution>
+                        <goals>
+                            <goal>resource</goal>
+                            <goal>build</goal>
+                        </goals>
+                    </execution>
+                </executions>-->
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M3</version>
+                <configuration>
+                    <useSystemClassLoader>false</useSystemClassLoader>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
