@@ -23,6 +23,8 @@ spring:
     name: spring-boot-startup
   flyway:
     locations: classpath:db/migration/common,classpath:db/migration/h2
+    placeholders:
+      redirect-url: http://localhost:4200/
 
 server:
   use-forward-headers: true

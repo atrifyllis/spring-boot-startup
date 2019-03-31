@@ -20,3 +20,5 @@ spring:
   flyway:
     # syntax is different in h2 and mysql
     locations: classpath:/db/migration/common,classpath:/db/migration/mysql
+    placeholders:
+      redirect-url: http://localhost:8081/
