@@ -4,4 +4,4 @@ INSERT INTO oauth_client_details
 	refresh_token_validity, additional_information, autoapprove)
 VALUES
 	('sampleClientId', 'secret', 'read,write,foo,bar',
-	'implicit', null, null, 36000, 36000, null, 'read');
+	'implicit', '${redirect-url}', null, 36000, 36000, null, 'read');
